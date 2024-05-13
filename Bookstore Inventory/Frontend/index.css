@@ -1,0 +1,157 @@
+* {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    padding: 40px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #17b47c;
+    color: white;
+    border: 10px solid #17b47c;
+    border-radius: 10px;
+    font-size: medium;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.appMainHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.appMainHeader h1 {
+    margin: 0px 0px 5px 0px;
+}
+
+.appMainHeader p {
+    color: #96b1af;
+}
+
+.functionalitySection {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0px 20px 0px;
+}
+
+.functionalityBubble {
+    background-color: #17b47c;
+    border-radius: 10px;
+    color: white;
+    width: 40px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.functionalityTasks {
+    display: flex;
+    gap: 8px;
+}
+
+/* New Added Book Form from JS */
+
+.bookForm { 
+    display: flex; 
+    flex-direction: column; 
+    background-color: #f9f9f9; 
+    padding: 40px; 
+    margin-top: 20px; 
+    border-radius: 10px; 
+}
+
+.bookFormContent { 
+    display: flex; 
+    flex-direction: 
+    column; 
+    gap: 10px; 
+}
+
+.bookFormContent label { 
+    font-size: 14px; 
+    font-weight: 500; 
+}
+
+.bookFormContent input { 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    padding: 8px; 
+    font-size: 14px; 
+}
+
+.bookFormContent input:focus { 
+    outline: none; 
+    box-shadow: 0 0 2px 1px #17b47c; 
+}
+
+.bookFormContent button { 
+    background-color: #17b47c; 
+    color: white; 
+    border: 10px solid #17b47c; 
+    border-radius: 10px; 
+    font-size: medium; 
+    font-weight: 500; 
+    cursor: pointer; 
+    margin-top: 20px; 
+}
+
+/* Delete Button */
+
+.deleteButton {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/* Book List */
+
+.bookList {
+    margin-top: 20px;
+}
+
+.bookItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.bookItemDetails {
+    flex: 1;
+}
+
+.bookItemTitle {
+    font-weight: bold;
+}
+
+.bookItemAuthor {
+    color: #666;
+}
+
+.bookItemPrice {
+    font-weight: bold;
+    color: #17b47c;
+}
