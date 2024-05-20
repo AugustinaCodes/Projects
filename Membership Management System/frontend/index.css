@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: #ebf2f3;
+    padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    background-color: #ebf2f3;
+}
+
+.navBar {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding: 20px;
+}
+
+.navBar a {
+    text-decoration: none;
+    color: #657dea;
+    font-weight: bold;
+}
+
+.newMembershipButton {
+    background-color: #657dea;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.newMembershipButton:hover {
+    background-color: #4f46e5;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.upperHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.textHeader p {
+    font-size: small;
+}
+
+.textHeader h1 {
+    font-weight: lighter;
+    margin-bottom: 0;
+}
+
+.packageCard {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.packageCard:nth-child(3n) {
+    margin-right: 0;
+}
+
+.packageCard h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.packageCard p {
+    color: #666;
+    font-size: 16px;
+}
+
+.deleteButton {
+    background-color: #f0506e;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
