@@ -100,3 +100,64 @@ footer{
     cursor: pointer;
     margin-top: 20px;
 }
+
+.createMembership {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.createMembership h1 {
+    margin-bottom: 20px;
+}
+
+.createMembership form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.createMembership label {
+    margin-top: 10px;
+}
+
+.createMembership input,
+.createMembership textarea {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.createMembership textarea {
+    height: 100px;
+}
+
+.formButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cancelButton {
+    background-color: transparent;
+    color: #657dea;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancelButton:hover {
+    background-color: #e2e8f0;
+}
+
+.hidden {
+    display: none;
+}

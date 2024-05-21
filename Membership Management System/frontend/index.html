@@ -25,13 +25,24 @@
                 <button class="newMembershipButton">+ New Membership</button>
             </div>
         </div>
-        <!-- <section class="packageCard">
-            <h2></h2>
-            <p></p>
-            <button class="deleteButton">
-                <i class="fas fa-trash-alt"></i>
-            </button>
-        </section> -->
+        <div class="createMembership hidden">
+            <h1>Create Membership</h1>
+            <form id="createMembershipForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+
+                <label for="price">Membership Price</label>
+                <input type="number" id="price" name="price" step=".01" placeholder="Membership Price" required>
+
+                <label for="description">Description</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <div class="formButtons">
+                    <button type="button" class="cancelButton">Cancel</button>
+                    <button type="submit" class="newMembershipButton">Create Membership</button>
+                </div>
+            </form>
+        </div>
     </main>
     <footer>
         <p>Copyright ©2021 Membership Manager</p>
