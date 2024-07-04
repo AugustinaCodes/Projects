@@ -25,7 +25,7 @@ export default function Pets() {
   }
 
   function handleViewLog(id) {
-    console.log("Viewing logs for pet", id);
+    navigate(`/v1/health-records/${id}`);
   }
 
   async function handleArchivePet(id) {
