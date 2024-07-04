@@ -1,0 +1,27 @@
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    height: 40px;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #f89c1c;
+    font-weight: bold;
+}
+
+.navLink:hover {
+    text-decoration: underline;
+}
