@@ -1,0 +1,38 @@
+.petCard {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(25% - 20px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.pet-card h2 {
+    margin-top: 0;
+  }
+
+.petButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.viewLog, .delete {
+    background-color: #f89c1c;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete {
+    background-color: white;
+    color: #f89c1c;
+    border: 1px solid #f89c1c;
+}
+
+.delete:hover {
+    background-color: #f89c1c;
+    color: white;
+  }

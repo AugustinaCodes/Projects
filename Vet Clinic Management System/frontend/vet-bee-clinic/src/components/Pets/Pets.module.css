@@ -1,0 +1,26 @@
+.petsPage {
+  padding: 20px;
+  margin-bottom: 80px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.addPet {
+  background-color: #f89c1c;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.petList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
