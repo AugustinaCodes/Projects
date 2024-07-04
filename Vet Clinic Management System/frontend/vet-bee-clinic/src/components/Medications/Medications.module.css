@@ -1,0 +1,35 @@
+.medicationsPage {
+  padding: 20px;
+}
+
+.backButton {
+  background-color: #f89c1c;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.addMedication {
+  background-color: #f89c1c;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.medicationsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
