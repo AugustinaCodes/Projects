@@ -24,8 +24,10 @@ export default function Pets() {
     navigate("/v1/add-pet");
   }
 
-  function handleViewLog(id) {
-    navigate(`/v1/health-records/${id}`);
+  function handleViewLog(id, petName) {
+    navigate(`/v1/health-records/${id}`, {
+      state: { petName },
+    });
   }
 
   async function handleArchivePet(id) {

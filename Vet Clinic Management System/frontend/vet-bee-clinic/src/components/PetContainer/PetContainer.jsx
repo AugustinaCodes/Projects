@@ -7,7 +7,10 @@ export default function PetContainer({ pet, onViewLog, onDelete }) {
       <p>Date of Birth: {pet.dob}</p>
       <p>Client Email: {pet.client_email}</p>
       <div className={styles.petButtons}>
-        <button className={styles.viewLog} onClick={() => onViewLog(pet._id)}>
+        <button
+          className={styles.viewLog}
+          onClick={() => onViewLog(pet._id, pet.name)}
+        >
           View Log
         </button>
         <button className={styles.delete} onClick={() => onDelete(pet._id)}>

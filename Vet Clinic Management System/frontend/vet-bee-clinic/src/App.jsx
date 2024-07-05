@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import AddPetForm from "./components/AddPetForm/AddPetForm";
 import AddMedicationForm from "./components/AddMedicationForm/AddMedicationForm";
 import HealthRecords from "./components/HealthRecords/HealthRecords";
+import AddPrescriptionForm from "./components/AddPrescriptionForm/AddPrescriptionForm";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
         <Route path="/v1/add-pet" element={<AddPetForm />} />
         <Route path="/v1/add-medication" element={<AddMedicationForm />} />
         <Route path="/v1/health-records/:id" element={<HealthRecords />} />
+        <Route
+          path="/v1/health-records/:id/add-prescription"
+          element={<AddPrescriptionForm />}
+        />
       </Routes>
       <Footer />
     </div>

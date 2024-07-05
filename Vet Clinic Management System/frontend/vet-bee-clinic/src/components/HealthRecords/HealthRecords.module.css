@@ -3,7 +3,7 @@
 }
 
 .backButton {
-  background-color: #f89c1c; /* Orange color */
+  background-color: #f89c1c;
   border: none;
   padding: 10px 20px;
   color: white;
@@ -15,30 +15,42 @@
 .topButtons {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
 .addPrescription,
 .addLog {
-  background-color: #f89c1c; /* Orange color */
+  background-color: #f89c1c;
   border: none;
   padding: 10px 20px;
   color: white;
   cursor: pointer;
   border-radius: 4px;
+  max-height: 40px;
+}
+
+.topBit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.displayBit {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .displayButtons {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
   gap: 10px;
 }
 
 .displayButton {
   background-color: white;
-  border: 1px solid #f89c1c; /* Orange color */
+  border: 1px solid #f89c1c;
   padding: 10px 20px;
   color: #f89c1c;
   cursor: pointer;
