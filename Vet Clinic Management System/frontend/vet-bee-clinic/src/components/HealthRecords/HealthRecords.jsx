@@ -1,17 +1,18 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./HealthRecords.module.css";
+import HealthRecordsContainer from "../HealthRecordsContainer/HealthRecordsContainer";
 
 export default function HealthRecords() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { petName } = location.state;
+  const { petName, petId } = location.state;
 
   function handleBackButton() {
     navigate(-1);
   }
 
-  function handleAddPrescription(id) {
-    navigate(`/v1/health-records/${id}/add-prescription`);
+  function handleAddPrescription() {
+    navigate(`/v1/health-records/${petId}/add-prescription`);
   }
 
   return (
@@ -31,12 +32,9 @@ export default function HealthRecords() {
           <button className={styles.addLog}>Add Log</button>
         </div>
       </div>
-      <div className={styles.displayBit}>
+      <div>
         <h2>Display:</h2>
-        <div className={styles.displayButtons}>
-          <button className={styles.displayButton}>Logs</button>
-          <button className={styles.displayButton}>Prescriptions</button>
-        </div>
+        <HealthRecordsContainer petId={petId} />
       </div>
     </div>
   );

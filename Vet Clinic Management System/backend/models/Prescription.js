@@ -17,4 +17,4 @@ const prescriptionSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("prescription", prescriptionSchema);
+export default mongoose.model("Prescription", prescriptionSchema);

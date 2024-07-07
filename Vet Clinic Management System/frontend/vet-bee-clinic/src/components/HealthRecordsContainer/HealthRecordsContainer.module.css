@@ -1,0 +1,34 @@
+.displayButtons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.displayButton {
+  background-color: white;
+  border: 1px solid #f89c1c; /* Orange color */
+  padding: 5px 10px;
+  color: #f89c1c;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.displayButton.active {
+  background-color: #f89c1c;
+  color: white;
+}
+
+.recordsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.recordCard {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  width: calc(25% - 20px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}

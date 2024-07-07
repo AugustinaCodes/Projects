@@ -36,12 +36,6 @@
   align-items: center;
 }
 
-.displayBit {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
 .displayButtons {
   display: flex;
   align-items: center;

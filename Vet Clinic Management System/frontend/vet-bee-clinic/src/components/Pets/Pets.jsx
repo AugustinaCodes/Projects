@@ -26,7 +26,7 @@ export default function Pets() {
 
   function handleViewLog(id, petName) {
     navigate(`/v1/health-records/${id}`, {
-      state: { petName },
+      state: { petName, petId: id },
     });
   }
 

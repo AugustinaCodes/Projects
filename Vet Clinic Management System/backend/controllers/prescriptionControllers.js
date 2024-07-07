@@ -40,7 +40,7 @@ export async function getPrescriptionsByPetId(req, res) {
   try {
     const prescriptions = await Prescription.find({
       pet_id: augintinioId,
-    })
+    }).populate("medication_id")
     res.status(200).json(prescriptions);
   } catch (error) {
     console.log("Error fetching prescriptions", error);

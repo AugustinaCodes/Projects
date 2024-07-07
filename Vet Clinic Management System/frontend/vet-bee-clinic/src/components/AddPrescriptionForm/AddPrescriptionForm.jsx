@@ -29,7 +29,7 @@ export default function AddPrescriptionForm() {
         pet_id: id,
         comment,
       });
-      navigate(`/v1/health-records/${id}`);
+      navigate(-1);
     } catch (error) {
       console.log("Error adding prescription", error);
     }
