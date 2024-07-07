@@ -15,6 +15,10 @@ export default function HealthRecords() {
     navigate(`/v1/health-records/${petId}/add-prescription`);
   }
 
+  function handleAddLog() {
+    navigate(`/v1/health-records/${petId}/add-log`);
+  }
+
   return (
     <div className={styles.healthRecordsPage}>
       <button className={styles.backButton} onClick={handleBackButton}>
@@ -29,7 +33,9 @@ export default function HealthRecords() {
           >
             Add Prescription
           </button>
-          <button className={styles.addLog}>Add Log</button>
+          <button className={styles.addLog} onClick={handleAddLog}>
+            Add Log
+          </button>
         </div>
       </div>
       <div>

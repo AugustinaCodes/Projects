@@ -7,6 +7,7 @@ import AddPetForm from "./components/AddPetForm/AddPetForm";
 import AddMedicationForm from "./components/AddMedicationForm/AddMedicationForm";
 import HealthRecords from "./components/HealthRecords/HealthRecords";
 import AddPrescriptionForm from "./components/AddPrescriptionForm/AddPrescriptionForm";
+import AddLogForm from "./components/AddLogForm/AddLogForm";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           path="/v1/health-records/:id/add-prescription"
           element={<AddPrescriptionForm />}
         />
+        <Route path="/v1/health-records/:id/add-log" element={<AddLogForm />} />
       </Routes>
       <Footer />
     </div>
