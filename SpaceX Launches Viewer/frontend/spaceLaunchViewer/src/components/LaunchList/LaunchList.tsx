@@ -23,6 +23,7 @@ const LaunchList: React.FC = () => {
   useEffect(() => {
     const getLaunches = async () => {
       try {
+        setLoading(true)
         const data = await fetchLaunches(
           pageSize,
           (currentPage - 1) * pageSize
@@ -31,6 +32,7 @@ const LaunchList: React.FC = () => {
         setTotalPages(Math.ceil(data.totalDocs / pageSize));
         setLoading(false);
       } catch (error) {
+        console.error('Error fetching data:', error); 
         setError("Failed to fetch launch data");
         setLoading(false);
       }
