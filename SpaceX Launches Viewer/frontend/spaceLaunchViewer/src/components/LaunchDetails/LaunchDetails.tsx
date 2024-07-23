@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { fetchLaunch } from "../../services/spacexService";
 import { useEffect, useState } from "react";
-import './LaunchDetails.module.css'
+import styles from './LaunchDetails.module.css'
 
 interface Launch {
   id: string;
@@ -52,7 +52,7 @@ const LaunchDetails: React.FC = () => {
   }
 
   return (
-    <div className="launch-details">
+    <div className={styles.launchDetails}>
       <h2>{launch.name}</h2>
       <p>Date: {new Date(launch.date_utc).toLocaleDateString()}</p>
       <p>Rocket: {launch.rocket}</p>

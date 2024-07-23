@@ -3,7 +3,7 @@ import LaunchItem from "../LaunchItem/LaunchItem";
 import { useState, useEffect } from "react";
 import PageSizeDropdown from "../PageSizeDropdown/PageSizeDropdown";
 import LaunchItemPagination from "../LaunchItemPagination/LaunchItemPagination";
-import './LaunchList.module.css'
+import styles from './LaunchList.module.css'
 
 interface Launch {
   id: string;
@@ -49,7 +49,7 @@ const LaunchList: React.FC = () => {
   }
 
   return (
-    <div className="launch-list">
+    <div className={styles.launchList}>
       <PageSizeDropdown pageSize={pageSize} setPageSize={setPageSize} />
       {launches.map((launch) => (
         <LaunchItem key={launch.id} launch={launch} />

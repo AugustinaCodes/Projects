@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import './LaunchItem.module.css'
+import styles from './LaunchItem.module.css'
 
 interface LaunchItemProps {
   launch: {
@@ -12,7 +12,7 @@ interface LaunchItemProps {
 
 const LaunchItem: React.FC<LaunchItemProps> = ({ launch }) => {
   return (
-    <div className="launch-item">
+    <div className={styles.launchItem}>
       <h3>{launch.name}</h3>
       <p>Date: {new Date(launch.date_utc).toLocaleDateString()}</p>
       <p>Rocket: {launch.rocket}</p>

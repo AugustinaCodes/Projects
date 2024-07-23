@@ -1,18 +1,18 @@
-.launch-item {
+.launchItem {
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
 
-.launch-item:last-child {
+.launchItem:last-child {
   border-bottom: none;
 }
 
-.launch-item h3 {
+.launchItem h3 {
   margin: 0;
   color: #333;
 }
 
-.launch-item p {
+.launchItem p {
   margin: 5px 0;
   color: #666;
 }
