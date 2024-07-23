@@ -14,8 +14,13 @@ export interface Launch {
   };
 }
 
-export const fetchLaunches = async (limit: number, skip: number) => {
-
+export const fetchLaunches = async (
+  limit: number,
+  skip: number,
+  searchTerm: string,
+  startDate: Date | null,
+  endDate: Date | null
+) => {
   interface LaunchResponse {
     docs: Launch[];
     totalDocs: number;
@@ -30,18 +35,42 @@ export const fetchLaunches = async (limit: number, skip: number) => {
     nextPage: number | null;
   }
 
+  const query: any = {};
 
-  const response = await axios.post<LaunchResponse>(API_URL, {
-    query: {},
-    options: {
-      limit: limit,
-      offset: skip,
-    },
-  });
-  return response.data;
+  if (searchTerm) {
+    query.name = { $regex: searchTerm, $options: "i" };
+  }
+
+  if (startDate) {
+    query.date_utc = { $gte: startDate.toISOString() };
+  }
+
+  if (endDate) {
+    if (!query.date_utc) {
+      query.date_utc = { $lte: endDate.toISOString() };
+    } else {
+      query.date_utc.$lte = endDate.toISOString();
+    }
+  }
+
+  // const query = searchTerm ? { name: { $regex: searchTerm, $options: 'i' } } : {};
+
+  try {
+    const response = await axios.post<LaunchResponse>(API_URL, {
+      query,
+      options: {
+        limit: limit,
+        offset: skip,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching launches", error);
+    throw error;
+  }
 };
 
 export const fetchLaunch = async (id: string) => {
-  const response = await axios.get(`${LAUNCH_URL}${id}`);
+  const response = await axios.get<Launch>(`${LAUNCH_URL}${id}`);
   return response.data;
 };
