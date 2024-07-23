@@ -47,7 +47,7 @@ const LaunchList = () => {
     setCurrentPage(1);
   };
 
-  const handleDateChange = (startDate: Date, endDate: Date) => {
+  const handleDateChange = (startDate: Date | null, endDate: Date | null) => {
     setStartDate(startDate);
     setEndDate(endDate);
     setCurrentPage(1);
