@@ -1,24 +1,17 @@
-import { fetchLaunches } from "../../services/spacexService";
+import { fetchLaunches, Launch } from "../../services/spacexService";
 import LaunchItem from "../LaunchItem/LaunchItem";
 import { useState, useEffect } from "react";
 import PageSizeDropdown from "../PageSizeDropdown/PageSizeDropdown";
 import LaunchItemPagination from "../LaunchItemPagination/LaunchItemPagination";
 import styles from './LaunchList.module.css'
 
-interface Launch {
-  id: string;
-  name: string;
-  date_utc: string;
-  rocket: string;
-}
-
-const LaunchList: React.FC = () => {
+const LaunchList = () => {
   const [launches, setLaunches] = useState<Launch[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [pageSize, setPageSize] = useState<number>(10);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number>(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const getLaunches = async () => {

@@ -3,10 +3,10 @@ interface PageSizeDropdownProps {
   setPageSize: (size: number) => void;
 }
 
-const PageSizeDropdown: React.FC<PageSizeDropdownProps> = ({
+const PageSizeDropdown = ({
   pageSize,
   setPageSize,
-}) => {
+} : PageSizeDropdownProps) => {
   return (
     <div>
       <label htmlFor="pageSize">Page Size:</label>

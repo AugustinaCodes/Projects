@@ -4,11 +4,11 @@ interface LaunchItemPaginationProps {
   setCurrentPage: (page: number) => void;
 }
 
-const LaunchItemPagination: React.FC<LaunchItemPaginationProps> = ({
+const LaunchItemPagination = ({
   currentPage,
   totalPages,
   setCurrentPage,
-}) => {
+} : LaunchItemPaginationProps) => {
   return (
     <div>
       <button

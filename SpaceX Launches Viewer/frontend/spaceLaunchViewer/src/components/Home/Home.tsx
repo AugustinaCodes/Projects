@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 
-const Home: React.FC = () => {
+const Home = () => {
   return <div className={styles.home}>
     <h1>Welcome to SpaceX Launches Viewer</h1>
     <p>Explore the past and upcoming SpaceX launches</p>

@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
 import styles from './LaunchItem.module.css'
+import { Launch } from '../../services/spacexService'
 
 interface LaunchItemProps {
-  launch: {
-    id: string;
-    name: string;
-    date_utc: string;
-    rocket: string;
-  };
+  launch: Launch;
 }
 
-const LaunchItem: React.FC<LaunchItemProps> = ({ launch }) => {
+const LaunchItem = ({ launch } : LaunchItemProps) => {
   return (
     <div className={styles.launchItem}>
       <h3>{launch.name}</h3>
