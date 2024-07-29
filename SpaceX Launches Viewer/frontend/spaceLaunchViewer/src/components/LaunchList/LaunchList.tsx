@@ -1,46 +1,33 @@
-import { fetchLaunches, Launch } from "../../services/spacexService";
+import { ILaunchFilter } from "../../types/launches";
 import LaunchItem from "../LaunchItem/LaunchItem";
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import PageSizeDropdown from "../PageSizeDropdown/PageSizeDropdown";
 import LaunchItemPagination from "../LaunchItemPagination/LaunchItemPagination";
 import styles from "./LaunchList.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import DateFilter from "../DateFilter/DateFilter";
 import Skeleton from "react-loading-skeleton";
+import { useLaunches } from "../../hooks/useLaunches";
 
 const LaunchList = () => {
-  const [launches, setLaunches] = useState<Launch[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [pageSize, setPageSize] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
 
-  useEffect(() => {
-    const getLaunches = async () => {
-      try {
-        setLoading(true);
-        const skip = (currentPage - 1) * pageSize;
-        const data = await fetchLaunches(
-          pageSize,
-          skip,
-          searchTerm,
-          startDate,
-          endDate
-        );
-        setLaunches(data.docs);
-        setTotalPages(Math.ceil(data.totalDocs / pageSize));
-        setLoading(false);
-      } catch (error) {
-        setError("Failed to fetch launch data");
-        setLoading(false);
-      }
-    };
-    getLaunches();
-  }, [pageSize, currentPage, searchTerm, startDate, endDate]);
+  const filter: ILaunchFilter = useMemo(
+    () => ({
+      limit: pageSize,
+      skip: (currentPage - 1) * pageSize,
+      searchTerm,
+      startDate,
+      endDate,
+    }),
+    [pageSize, currentPage, searchTerm, startDate, endDate]
+  );
+
+  const { launches, loading, error, totalPages } = useLaunches(filter);
 
   const handleSearch = (newSearchTerm: string) => {
     setSearchTerm(newSearchTerm);
@@ -54,7 +41,11 @@ const LaunchList = () => {
   };
 
   if (loading) {
-    return <div className={styles.launchList}><Skeleton count={5} /></div>;
+    return (
+      <div className={styles.launchList}>
+        <Skeleton count={5} />
+      </div>
+    );
   }
 
   if (error) {

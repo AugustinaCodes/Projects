@@ -1,66 +1,44 @@
 import axios from "axios";
+import {
+  ILaunch,
+  ILaunchResponse,
+  ILaunchFilter,
+  IQuery,
+} from "../types/launches";
 
 const API_URL = "https://api.spacexdata.com/v5/launches/query";
 const LAUNCH_URL = "https://api.spacexdata.com/v5/launches/";
 
-export interface Launch {
-  id: string;
-  name: string;
-  date_utc: string;
-  rocket: string;
-  details: string;
-  links: {
-    webcast: string;
-  };
-}
-
 export const fetchLaunches = async (
-  limit: number,
-  skip: number,
-  searchTerm: string,
-  startDate: Date | null,
-  endDate: Date | null
-) => {
-  interface LaunchResponse {
-    docs: Launch[];
-    totalDocs: number;
-    offset: number;
-    limit: number;
-    totalPages: number;
-    page: number;
-    pagingCounter: number;
-    hasPrevPage: boolean;
-    hasNextPage: boolean;
-    prevPage: number | null;
-    nextPage: number | null;
+  filter: ILaunchFilter
+): Promise<ILaunchResponse> => {
+  const query: IQuery = {};
+
+  if (filter.searchTerm) {
+    query.name = {
+      $regex: filter.searchTerm,
+      $options: "i",
+    };
   }
 
-  const query: any = {};
-
-  if (searchTerm) {
-    query.name = { $regex: searchTerm, $options: "i" };
+  if (filter.startDate) {
+    query.date_utc = { $gte: filter.startDate.toISOString() };
   }
 
-  if (startDate) {
-    query.date_utc = { $gte: startDate.toISOString() };
-  }
-
-  if (endDate) {
+  if (filter.endDate) {
     if (!query.date_utc) {
-      query.date_utc = { $lte: endDate.toISOString() };
+      query.date_utc = { $lte: filter.endDate.toISOString() };
     } else {
-      query.date_utc.$lte = endDate.toISOString();
+      query.date_utc.$lte = filter.endDate.toISOString();
     }
   }
 
-  // const query = searchTerm ? { name: { $regex: searchTerm, $options: 'i' } } : {};
-
   try {
-    const response = await axios.post<LaunchResponse>(API_URL, {
+    const response = await axios.post<ILaunchResponse>(API_URL, {
       query,
       options: {
-        limit: limit,
-        offset: skip,
+        limit: filter.limit,
+        offset: filter.skip,
       },
     });
     return response.data;
@@ -71,6 +49,11 @@ export const fetchLaunches = async (
 };
 
 export const fetchLaunch = async (id: string) => {
-  const response = await axios.get<Launch>(`${LAUNCH_URL}${id}`);
-  return response.data;
+  try {
+    const response = await axios.get<ILaunch>(`${LAUNCH_URL}${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching launch", error);
+    throw error;
+  }
 };
