@@ -12,9 +12,7 @@ export const useLaunches = (filter: ILaunchFilter) => {
     const getLaunches = async (): Promise<void> => {
       try {
         setLoading(true);
-        console.log('Fetching launches with filter:', filter);
         const data: ILaunchResponse = await fetchLaunches(filter);
-        console.log('Fetched launches data:', data);
         setLaunches(data.docs);
         setTotalPages(Math.ceil(data.totalDocs / filter.limit));
         setLoading(false)
