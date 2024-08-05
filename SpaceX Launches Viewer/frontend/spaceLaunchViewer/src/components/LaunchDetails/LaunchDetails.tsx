@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
-import { fetchLaunch, Launch } from "../../services/spacexService";
+import { fetchLaunch } from "../../services/spacexService";
+import { ILaunch } from "../../types/launches";
 import { useEffect, useState } from "react";
 import styles from './LaunchDetails.module.css'
 
 const LaunchDetails = () => {
   const { id } = useParams<{ id: string }>();
-  const [launch, setLaunch] = useState<Launch | null>(null);
+  const [launch, setLaunch] = useState<ILaunch | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
